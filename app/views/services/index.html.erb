@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<h1 class="text-center">Our Services</h1>
+
+<br><br>
+
+
+  <div class="row">
+    <% @services.each do |service| %>
+      <div class="col-md-12">
+        <div class="row">
+          <div class="col-md-10">
+            <h2><%= service.name %></h2>
+              <p><%= service.info %></p>
+          </div>
+          <div class="col-md-2">
+            <% service.pictures.each do |pic| %>
+              <p><%= image_tag pic.url, class: "service-pic" %></p>
+            <% end %>
+          </div>
+        </div>
+      </div>
+  <!--           Make this so that only admins can see and use -->
+        <% if current_user && (can? :update, @service) %>
+          <p><%= link_to 'Show', service %></p>
+          <p><%= link_to 'Edit', edit_service_path(service) %></p>
+          <p><%= link_to 'Destroy', service, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+        <% end %>
+    <% end %>
+    <% if current_user && (can? :create, @service) %>
+      <%= link_to "New Service", new_service_path %>
+    <% end %>
+  </div>
+<br />
+
+
+
+

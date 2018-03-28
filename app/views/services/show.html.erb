@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @service.name %>
+</p>
+
+<p>
+  <strong>Info:</strong>
+  <%= @service.info %>
+</p>
+
+
+<%= link_to 'Edit', edit_service_path(@service) %> |
+<%= link_to 'Back', services_path %>
+
+
+<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+  	<% @service.pictures.each_with_index do |pic, index| %>
+	  	<% if index == 0 %>
+	    	<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+	    <% else %>
+	    	<li data-target="#carousel-example-generic" data-slide-to="<%= index %>"></li>
+	    <% end %>
+    <% end %>
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner" role="listbox">
+  	<% @service.pictures.each_with_index do |pic, index| %>
+  	<% if index == 0 %>
+    	<div class="item active">
+    <% else %>
+    	<div class="item">
+    <% end %>
+
+      <%= image_tag pic.url %>
+    	</div>
+    <% end %>
+
+  </div>
+
+  <!-- Controls -->
+  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
