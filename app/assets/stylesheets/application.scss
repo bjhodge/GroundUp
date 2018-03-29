@@ -18,11 +18,21 @@
 @import "bootstrap";
 @import "font-awesome";
 
+h1, h2, h3, h4 {
+	font-family: "Arvo", serif;
+}
+
+p {
+	font-family: "Libre Baskerville Regular";
+	font-size: 20px;
+}
 
 body { 
 	padding-top: 70px; 
+	background-color: #F7D509;
 }
 
 .btn-color:visited {
 	color: $brand-primary;
 }
+

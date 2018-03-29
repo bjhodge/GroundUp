@@ -1,0 +1,22 @@
+<%= form_with(model: home_page, local: true) do |form| %>
+  <% if home_page.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(home_page.errors.count, "error") %> prohibited this from being saved:</h2>
+
+      <ul>
+      <% home_page.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :pictures %>
+    <%= form.file_field :pictures, id: :post_pictures, multiple: true %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

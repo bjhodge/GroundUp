@@ -256,13 +256,8 @@ $ rails db:migrate
 
 # To Do List
 
-
-
-
-
-- Add Homepage and Contact Us content
-- Add services to drop down in _navbar.html.erb with links to each services page
-- Once services pages are created, fill in content for each page
+- Add Homepage content and upload logo
+- figure out how to upload pictures to the homepage
 
 
 

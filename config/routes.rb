@@ -2,12 +2,13 @@ Rails.application.routes.draw do
   resources :services
   devise_for :users
   resources :testimonials
+  resources :home_page
   
-  root 'homepage#index'
+  root 'home_page#index'
 
   get 'testimonials' => 'testimonials#index'
 
-  get 'contact_us' => 'homepage#contact_us'
+  get 'contact_us' => 'home_page#contact_us'
 
   get 'services' => 'services#index'
 
